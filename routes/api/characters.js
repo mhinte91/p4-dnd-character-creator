@@ -6,4 +6,6 @@ const charactersCtrl = require('../../controllers/characters');
 
 /*---------- Protected Routes ----------*/
 
+router.post('/', charactersCtrl.create);
+
 module.exports = router;
