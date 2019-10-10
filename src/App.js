@@ -30,7 +30,11 @@ class App extends React.Component {
     return (
       <Router>
         <Fragment>
-          <Navbar />
+          <Navbar
+            user={this.state.user}
+            handleLogout={this.handleLogout}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+          />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />

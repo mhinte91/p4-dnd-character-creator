@@ -9,7 +9,9 @@ const Navbar = props => {
           <Link to='/about'>About</Link>
         </li>
         <li>
-          <Link to='/logout'>Logout</Link>
+          <Link to='/login' onClick={props.handleLogout}>
+            Logout
+          </Link>
         </li>
       </ul>
     </div>
