@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import userService from '../../utils/userService';
 
 class LoginPage extends Component {
   state = {
@@ -9,11 +10,22 @@ class LoginPage extends Component {
   };
 
   handleChange = e => {
-    // TODO: implement in an elegant way
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
+    try {
+      console.log('no go');
+      await userService.login(this.state);
+      console.log('go');
+      this.props.handleSignupOrLogin();
+      this.props.history.push('/');
+    } catch (err) {
+      alert('Invalid Credentials!');
+    }
   };
 
   render() {

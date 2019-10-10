@@ -1,39 +1,38 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ title, icon }) => {
+const Navbar = props => {
+  let nav = props.user ? (
+    <div>
+      <ul>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/logout'>Logout</Link>
+        </li>
+      </ul>
+    </div>
+  ) : (
+    <div>
+      <ul>
+        <li>
+          <Link to='/login'>Login</Link>
+        </li>
+        <li>
+          <Link to='/register'>Register</Link>
+        </li>
+      </ul>
+    </div>
+  );
   return (
     <div className='navbar bg-primary'>
       <h1>
-        <i className={icon} /> {title}
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-          <li>
-            <Link to='/register'>Register</Link>
-          </li>
-        </ul>
+        <i className='fas fa-dice-d20' /> Character Creator
+        {nav}
       </h1>
     </div>
   );
-};
-
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.string
-};
-
-Navbar.defaultProps = {
-  title: 'Character Creator',
-  icon: 'fas fa-dice-d20'
 };
 
 export default Navbar;
