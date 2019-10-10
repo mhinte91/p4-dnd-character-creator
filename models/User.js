@@ -1,23 +1,11 @@
 const mongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  }
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: {type: String, required: true, lowercase: true, unique: true},
+  password: String
+}, {
+  timestamps: true
 });
 
 userSchema.set('toJSON', {
@@ -28,4 +16,4 @@ userSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', userSchema);
