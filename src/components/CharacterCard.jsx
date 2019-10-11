@@ -26,11 +26,10 @@ function CharacterCard({ character, handleDeleteCharacter }) {
           route via the location.state object
         */}
         <Link
-
-        //   to={{
-        //     pathname: '/edit',
-        //     state: {puppy}
-        //   }}
+          to={{
+            pathname: '/edit',
+            state: { character }
+          }}
         >
           EDIT
         </Link>

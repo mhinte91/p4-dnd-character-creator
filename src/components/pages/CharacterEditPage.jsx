@@ -1,21 +1,30 @@
 import React from 'react';
+import * as characterAPI from '../../services/characters-api';
 
-class CharacterForm extends React.Component {
+class CharacterEditPage extends React.Component {
   state = {
     invalidForm: true,
-    formData: {
-      name: '',
-      race: '',
-      charClass: '',
-      bio: ''
-    }
+    formData: this.props.location.state.character
   };
 
   formRef = React.createRef();
 
+  handleUpdateCharacter = async updatedCharData => {
+    const updatedCharacter = await characterAPI.update(updatedCharData);
+    // const newCharactersArray = this.state.characters.map(c =>
+    //   c._id === updatedCharacter._id ? updatedCharacter : c
+    // );
+    // this.setState(
+    //   { characters: newCharactersArray },
+    //   // Using cb to wait for state to update before rerouting
+    //   () => this.props.history.push('/')
+    // );
+  };
+
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleAddCharacter(this.state.formData);
+    this.handleUpdateCharacter(this.state.formData);
+    this.props.history.push('/');
   };
 
   handleChange = e => {
@@ -88,7 +97,7 @@ class CharacterForm extends React.Component {
         <div>
           <input
             type='submit'
-            value='Add Character'
+            value='Update Character'
             className='btn btn-primary btn-block'
           />
         </div>
@@ -97,4 +106,4 @@ class CharacterForm extends React.Component {
   }
 }
 
-export default CharacterForm;
+export default CharacterEditPage;

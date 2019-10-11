@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import CharacterEditPage from './components/pages/CharacterEditPage';
 import userService from './utils/userService';
 import * as characterAPI from './services/characters-api';
 
@@ -42,6 +43,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/register' component={Register} />
+            <Route exact path='/edit' component={CharacterEditPage} />
             <Route
               exact
               path='/login'
