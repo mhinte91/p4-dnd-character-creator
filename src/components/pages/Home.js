@@ -21,7 +21,7 @@ class Home extends React.Component {
     const newChar = await characterAPI.create(newCharData);
     this.setState(
       state => ({
-        characters: [...state.characters, newChar]
+        characters: [newChar, ...state.characters]
       }),
       () => this.props.history.push('/')
     );
@@ -41,7 +41,6 @@ class Home extends React.Component {
   /*-----Lifecycle Methods ----------*/
   async componentDidMount() {
     const characters = await characterAPI.getAll();
-    console.log('Hello', characters);
     this.setState({ characters });
   }
 
