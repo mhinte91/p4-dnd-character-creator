@@ -1,7 +1,10 @@
 const BASE_URL = '/api/characters';
 
 export function getAll() {
-  return fetch(BASE_URL).then(res => res.json());
+  return fetch(BASE_URL, {
+    method: 'GET',
+    header: { 'content-type': 'application/json' }
+  }).then(res => res.json());
 }
 
 export function create(character) {

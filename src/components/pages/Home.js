@@ -3,10 +3,18 @@ import { Route, Navlink } from 'react-router-dom';
 import * as characterAPI from '../../services/characters-api';
 import CharacterForm from '../characters/CharacterForm';
 import CharacterListPage from '../pages/CharacterListPage';
+import userService from '../../utils/userService';
 
 class Home extends React.Component {
   state = {
-    characters: []
+    characters: [
+      {
+        name: '',
+        race: '',
+        charClass: '',
+        bio: ''
+      }
+    ]
   };
 
   handleAddCharacter = async newCharData => {
@@ -33,6 +41,7 @@ class Home extends React.Component {
   /*-----Lifecycle Methods ----------*/
   async componentDidMount() {
     const characters = await characterAPI.getAll();
+    console.log('Hello', characters);
     this.setState({ characters });
   }
 
