@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterCard from '../../components/PuppyCard/PuppyCard';
+import CharacterCard from '../CharacterCard';
 
 function CharacterListPage(props) {
   return (
@@ -10,7 +10,7 @@ function CharacterListPage(props) {
           <CharacterCard
             key={character._id}
             character={character}
-            // handleDeletePuppy={props.handleDeletePuppy}
+            handleDeletePuppy={props.handleDeletePuppy}
           />
         ))}
       </div>
