@@ -4,7 +4,7 @@ module.exports = {
   create
 };
 
-async function create(res, res) {
+async function create(req, res) {
   const character = await Character.create(req.body);
   res.status(201).json(character);
 }

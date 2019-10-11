@@ -31,21 +31,22 @@ class CharacterForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form ref={this.formRef} onSubmit={this.handleSubmit}>
         <h2 className='text-primary'>Add Character</h2>
         <input
           type='text'
           placeholder='Name'
           name='name'
-          // value={name}
-          // onChange={onChange}
+          value={this.state.formData.name}
+          onChange={this.handleChange}
+          required
         />
         <select
           type='text'
           placeholder='Race'
           name='race'
-          // value={race}
-          // onChange={onChange}
+          value={this.state.formData.race}
+          onChange={this.handleChange}
         >
           <option hidden>--Select Race--</option>
           <option value='Dragonborn'>Dragonborn</option>
@@ -63,8 +64,8 @@ class CharacterForm extends React.Component {
           type='text'
           placeholder='Class'
           name='charClass'
-          // value={charClass}
-          // onChange={onChange}
+          value={this.state.formData.charClass}
+          onChange={this.handleChange}
         >
           <option hidden>--Select Class--</option>
           <option value='Barbarian'>Barbarian</option>
@@ -81,8 +82,8 @@ class CharacterForm extends React.Component {
           type='text'
           placeholder='Bio'
           name='bio'
-          // value={bio}
-          // onChange={onChange}
+          value={this.state.formData.bio}
+          onChange={this.handleChange}
         />
         <div>
           <input

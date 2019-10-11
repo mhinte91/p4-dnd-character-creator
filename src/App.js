@@ -7,16 +7,19 @@ import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import userService from './utils/userService';
+import * as characterAPI from './services/characters-api';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      characters: []
     };
   }
 
   /*------ Callback Methods ----*/
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
