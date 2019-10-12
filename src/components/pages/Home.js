@@ -1,9 +1,7 @@
 import React from 'react';
-import { Route, Navlink } from 'react-router-dom';
 import * as characterAPI from '../../services/characters-api';
 import CharacterForm from '../characters/CharacterForm';
 import CharacterListPage from '../pages/CharacterListPage';
-import userService from '../../utils/userService';
 
 class Home extends React.Component {
   state = {

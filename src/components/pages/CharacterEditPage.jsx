@@ -10,15 +10,7 @@ class CharacterEditPage extends React.Component {
   formRef = React.createRef();
 
   handleUpdateCharacter = async updatedCharData => {
-    const updatedCharacter = await characterAPI.update(updatedCharData);
-    // const newCharactersArray = this.state.characters.map(c =>
-    //   c._id === updatedCharacter._id ? updatedCharacter : c
-    // );
-    // this.setState(
-    //   { characters: newCharactersArray },
-    //   // Using cb to wait for state to update before rerouting
-    //   () => this.props.history.push('/')
-    // );
+    await characterAPI.update(updatedCharData);
   };
 
   handleSubmit = e => {

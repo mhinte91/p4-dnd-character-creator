@@ -8,7 +8,6 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import CharacterEditPage from './components/pages/CharacterEditPage';
 import userService from './utils/userService';
-import * as characterAPI from './services/characters-api';
 
 class App extends React.Component {
   constructor() {
@@ -63,4 +62,4 @@ class App extends React.Component {
 
 export default App;
 
-// 
+//
