@@ -7,9 +7,19 @@ module.exports = {
   update
 };
 
-async function create(req, res) {
-  const character = await Character.create(req.body);
-  res.status(201).json(character);
+function create(req, res) {
+  const character = {
+    ...req.body,
+    user: req.body.user
+  };
+  Character.create(character)
+  .then(character => {
+    res.status(200).send(character)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).send("error")
+  })
 }
 
 async function getAll(req, res) {

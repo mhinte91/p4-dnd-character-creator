@@ -5,14 +5,7 @@ import CharacterListPage from '../pages/CharacterListPage';
 
 class Home extends React.Component {
   state = {
-    characters: [
-      {
-        name: '',
-        race: '',
-        charClass: '',
-        bio: ''
-      }
-    ]
+    characters: []
   };
 
   handleAddCharacter = async newCharData => {
@@ -47,7 +40,10 @@ class Home extends React.Component {
       <div className='grid-3'>
         <div></div>
         <div>
-          <CharacterForm handleAddCharacter={this.handleAddCharacter} />
+          <CharacterForm
+            handleAddCharacter={this.handleAddCharacter}
+            user={this.props.user}
+          />
         </div>
         <div>
           <CharacterListPage

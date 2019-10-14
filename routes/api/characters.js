@@ -3,10 +3,17 @@ const router = express.Router();
 const charactersCtrl = require('../../controllers/characters');
 
 /*---------- Public Routes ----------*/
+/*---------- Protected Routes ----------*/
+
 router.get('/', charactersCtrl.getAll);
 router.delete('/:id', charactersCtrl.delete);
 router.put('/:id', charactersCtrl.update);
-/*---------- Protected Routes ----------*/
-router.post('/', charactersCtrl.create);
+router.post('/', checkAuth, charactersCtrl.create);
+
+/*------ Helper Functions -------*/
+function checkAuth(req, res, next) {
+  if (req.user) return next();
+  return res.status(401).json({ msg: 'Not Authorized' });
+}
 
 module.exports = router;
