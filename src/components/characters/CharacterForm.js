@@ -7,7 +7,8 @@ class CharacterForm extends React.Component {
       name: '',
       race: '',
       charClass: '',
-      bio: ''
+      bio: '',
+      user: this.props.user ? this.props.user._id : null
     }
   };
 
@@ -76,6 +77,10 @@ class CharacterForm extends React.Component {
           <option value='Monk'>Monk</option>
           <option value='Paladin'>Paladin</option>
           <option value='Ranger'>Ranger</option>
+          <option value='Rogue'>Rogue</option>
+          <option value='Sorcerer'>Sorcerer</option>
+          <option value='Warlock'>Warlock</option>
+          <option value='Wizard'>Wizard</option>
         </select>
         <br />
         <textarea

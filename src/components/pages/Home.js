@@ -2,11 +2,16 @@ import React from 'react';
 import * as characterAPI from '../../services/characters-api';
 import CharacterForm from '../characters/CharacterForm';
 import CharacterListPage from '../pages/CharacterListPage';
+import userService from '../../utils/userService';
 
 class Home extends React.Component {
-  state = {
-    characters: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      characters: [],
+      user: userService.getUser()
+    };
+  }
 
   handleAddCharacter = async newCharData => {
     const newChar = await characterAPI.create(newCharData);
@@ -42,7 +47,7 @@ class Home extends React.Component {
         <div>
           <CharacterForm
             handleAddCharacter={this.handleAddCharacter}
-            user={this.props.user}
+            user={this.state.user}
           />
         </div>
         <div>
