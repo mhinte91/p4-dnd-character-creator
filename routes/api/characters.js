@@ -8,7 +8,7 @@ const charactersCtrl = require('../../controllers/characters');
 router.get('/', charactersCtrl.getAll);
 router.delete('/:id', charactersCtrl.delete);
 router.put('/:id', charactersCtrl.update);
-router.post('/', checkAuth, charactersCtrl.create);
+router.post('/', charactersCtrl.create);
 
 /*------ Helper Functions -------*/
 function checkAuth(req, res, next) {
