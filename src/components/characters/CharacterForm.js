@@ -62,7 +62,11 @@ class CharacterForm extends React.Component {
     console.log(stat[0].i);
     let newStats = JSON.parse(JSON.stringify(this.state.stats));
     console.log(newStats);
-    newStats[stat[0].i].value = 1;
+    newStats[stat[0].i].value =
+      Math.floor(Math.random() * 6) +
+      1 +
+      (Math.floor(Math.random() * 6) + 1) +
+      (Math.floor(Math.random() * 6) + 1);
     this.setState({
       stats: newStats
     });
