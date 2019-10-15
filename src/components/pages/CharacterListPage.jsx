@@ -1,6 +1,5 @@
 import React from 'react';
 import CharacterCard from '../CharacterCard';
-import { getAll } from '../../services/characters-api';
 
 function CharacterListPage(props) {
   return (
@@ -9,7 +8,7 @@ function CharacterListPage(props) {
       <div>
         {props.characters.map(character => (
           <CharacterCard
-            user={props.user}
+            userID={props.user._id}
             key={character._id}
             character={character}
             handleDeleteCharacter={props.handleDeleteCharacter}
