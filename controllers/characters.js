@@ -1,4 +1,5 @@
 const Character = require('../models/Character');
+const User = require('../models/User');
 
 module.exports = {
   create,
@@ -13,13 +14,13 @@ function create(req, res) {
     user: req.body.user
   };
   Character.create(character)
-  .then(character => {
-    res.status(200).send(character)
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).send("error")
-  })
+    .then(character => {
+      res.status(200).send(character);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('error');
+    });
 }
 
 async function getAll(req, res) {

@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 const CharacterSchema = new mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    },
     name: {
       type: String,
       required: true
@@ -22,6 +18,10 @@ const CharacterSchema = new mongoose.Schema(
     },
     bio: {
       type: String
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
     }
   },
   {

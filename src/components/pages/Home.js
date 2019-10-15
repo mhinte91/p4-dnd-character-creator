@@ -52,6 +52,7 @@ class Home extends React.Component {
         </div>
         <div>
           <CharacterListPage
+            user={this.state.user}
             characters={this.state.characters}
             handleDeleteCharacter={this.handleDeleteCharacter}
           />
