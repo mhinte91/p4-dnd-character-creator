@@ -5,7 +5,8 @@ const About = () => {
     <div>
       <h1>About This App</h1>
       <p className='my-1'>
-        This is a full-stack React app for creating DnD Characters!
+        This is a full-stack React app for creating DnD Characters! Stat button
+        functionality and rollable stats coming soon
       </p>
 
       <p className='bg-dark p'>

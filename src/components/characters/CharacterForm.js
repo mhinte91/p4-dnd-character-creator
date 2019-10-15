@@ -17,6 +17,15 @@ class CharacterForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleAddCharacter(this.state.formData);
+    this.setState({
+      formData: {
+        name: '',
+        race: '',
+        charClass: '',
+        bio: '',
+        user: this.props.user ? this.props.user._id : null
+      }
+    });
   };
 
   handleChange = e => {
