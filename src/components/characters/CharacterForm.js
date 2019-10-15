@@ -1,4 +1,5 @@
 import React from 'react';
+import Stats from './Stats';
 
 class CharacterForm extends React.Component {
   state = {
@@ -132,8 +133,8 @@ class CharacterForm extends React.Component {
           value={this.state.formData.bio}
           onChange={this.handleChange}
         />
-        <div>
-          <ul className='table th'>
+        <div className='grid-2'>
+          <ul>
             {this.state.stats.map((stat, idx) => (
               <div key={idx}>
                 <div className='btn badge' onClick={this.handleRoll}>
