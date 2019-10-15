@@ -1,5 +1,10 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
@@ -39,7 +44,17 @@ class App extends React.Component {
             handleSignupOrLogin={this.handleSignupOrLogin}
           />
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route
+              exact
+              path='/'
+              render={({ history }) =>
+                userService.getUser() ? (
+                  <Home history={history} />
+                ) : (
+                  <Redirect to='login' />
+                )
+              }
+            />{' '}
             <Route exact path='/about' component={About} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/edit' component={CharacterEditPage} />
